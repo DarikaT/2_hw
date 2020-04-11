@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} BOOKS - Что почитать? {% endblock %}
+
+{% block content %}
+
+<main class="list">
+    <div class="wrapp">
+        <p><b>«Что почитать?»</b><br>На этой странице предоставлены книги абсолютно разных авторов и жанров,
+        чтобы Вы с легкостью могли окунуться в новые неизведанные миры.</p>
+    </div>
+
+    <div class="ex_wrapp">
+        <div class="examples">
+            {% for book in object_list %}
+            <div class="book_title">
+                <ul>
+                    <h3><a class = links_list href="{% url 'bookdetail_url' book.pk %}">{{ book.title }}</a></h3>
+                    {% if book.image %}
+                    <div class="col-md-10 blogShort">
+                        <img style="height: 200px" src="{{book.image.url}}"  class="pull-left img-responsive thumb margin20 img-thumbnail">
+                    </div>
+                    {% endif %}
+                    <h5>Автор поста: <a href="#">{{ book.author }}</a></h5>
+                </ul>
+            </div>
+
+            <div class="book_text">
+                <p>{{ book.book }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="wrapp_paginator_pink">
+    <div class="paginator">
+        {% include "pagination.html" with page=page_obj %}
+    </div>
+    </div>
+
+</main>
+
+{% endblock %}

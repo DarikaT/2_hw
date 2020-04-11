@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Изменить «{{object.title}}» {% endblock %} 
+
+{% block content %}
+<main class="list">
+    <div class="ex_wrapp_create"></div>
+    <div class="wrapp_create">
+        <h2>Изменить: «{{object.title}}»</h2>
+        <div class="line" id = 'line_new'></div>
+
+    <form class = 'form' action="" method = 'POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <input class = 'btn_update' type="submit" value = 'Изменить'>
+    </form>
+    </div>
+    <div class="ex_wrapp_create"></div>
+</main>
+{% endblock %}

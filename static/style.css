@@ -1,0 +1,730 @@
+*{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: rgba(170, 170, 170, 0.205);
+    font-size: 18px;
+    color: #222;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+/* Стили navbar-a */
+header{
+    width: 100%;
+    background: #fff;
+    display: flex;
+    position: relative;
+}
+
+.header__logo {
+    cursor: pointer;
+    margin-top: 38px;
+    margin-left: 8%;
+    margin-right: 450px;
+    position: relative;
+}
+
+.header__logo p {
+    -webkit-text-stroke: 2px #f2c602;
+    color: transparent;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 34px;
+}
+
+nav{
+    margin-top: 56px;
+    margin-left: 15%;
+    position: relative;
+}
+
+.topnav .a_hover {
+    color: #222;
+    text-align: center;
+    padding: 0 10px; 
+    font-size: 23px;
+    text-decoration: none;
+    /* font-weight: bold; */
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-stretch: condensed;
+}
+
+.topnav .a_hover:hover{
+    border-bottom: 3px solid #f2c602;
+}
+
+
+/* Основные стили books_list.html */
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.list .wrapp {
+    background: #ead0d0;
+    text-align: center;
+    padding: 50px 0 50px 0;
+    font-size: 30px;
+    color: rgb(250, 245, 245);
+    
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+}
+
+.list .wrapp h3 {
+    color: #9c9c9a;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.list .ex_wrapp {
+    background: #6FB7C3; 
+    padding: 100px 100px 210px 100px;
+    color: #000;
+    font-size: 20px;
+}
+ 
+.ex_wrapp h1 {
+    color: #fff;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    font-size: 50px;
+}
+
+.examples .line{
+    width: 195px;
+    height: 4px;
+    background: #f2c602;
+    position: relative;
+    left: 44%;
+    margin-bottom: 50px;
+}
+
+.wrapp .line {
+    width: 200px;
+    height: 4px;
+    background: #f3cd24;
+    position: relative;
+    left: 44.5%;
+    margin-bottom: 20px;
+}
+
+.links_list {
+    color: #ffefef;
+    font-size: 38px;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+}
+
+.ex_wrapp  h3 {
+    color: #fddf59;
+    font-size: 38px;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+}
+
+/* Стили LIST из books_list.html */
+
+.book_title {
+    text-align: center;
+}
+
+.book_title h3 {
+    margin-bottom: 40px;
+}
+
+.book_title h5 {
+    margin-bottom: 45px;
+    font-family: 'Courier New', Courier, monospace;
+    font-stretch: condensed;
+    font-weight: lighter;
+}
+
+.book_title .col-md-10 {
+    margin-bottom: 15px;
+}
+
+.book_text {
+    margin-bottom: 65px;
+    font-family: 'Courier New', Courier, monospace;
+    font-stretch: condensed;
+    font-weight: lighter;
+    text-align: justify;
+}
+
+/* стили books_new.html */
+
+.wrapp h2 {
+    color: #ff8787;
+    font-size: 55px;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #808080;
+}
+
+#line_new {
+    left: 43%;
+    width: 240px;
+}
+
+.book_text_new {
+    margin-bottom: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-stretch: condensed;
+    font-weight: lighter;
+    text-align: justify;
+}
+
+.published p {
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    font-stretch: condensed;
+    font-weight: 150;
+    margin-bottom: 55px;
+    font-size: 18px;
+    font-style: oblique;
+
+}
+
+/* стили books_random.html */
+
+.wrapp b {
+    font-size: 40px;
+    color: #ff8787;
+    /* text-transform: uppercase; */
+    -webkit-text-stroke: 1px #808080;
+}
+
+.wrapp p {
+    padding: 0 100px 0 100px;
+    font-size: 35px;
+}
+
+
+/* стиль create, update */
+
+.wrapp_create {
+    background: #ead0d0;
+    text-align: center;
+    padding: 100px 0 100px 0;
+    font-size: 30px;
+    color: rgb(255, 248, 248);
+    /* font-family: 'Courier New', Courier, monospace; */
+    /* font-style: oblique; */
+}
+
+.ex_wrapp_create {
+    background: #6FB7C3; 
+    padding: 50px 0 50px 0;
+}
+
+.wrapp_create .line {
+    width: 195px;
+    height: 4px;
+    background: #f2c602;
+    position: relative;
+    left: 44%;
+    margin-bottom: 50px;
+}
+
+.wrapp_create h2 {
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    color: #fff;
+}
+
+/* детальный стиль update */
+input {
+    width: 400px;
+    height: 30px;
+    position: fixed;
+    text-align: center;
+    /* border-radius: 3px ; */
+    border: none;
+    position: relative;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.form .btn_update {
+    width: 250px;
+    height: 30px;
+    position: relative;
+    background-color: #fddf59;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    /* font-style: oblique; */
+}
+
+textarea {
+    width: 700px;
+    height: 300px;
+    border: none;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 15px 10px 10px;
+    text-align: justify;
+    color: #222;
+}
+
+input[type="file" i] {
+    position: relative;
+    font-size: 20px;
+    display: inline-block;
+    border: none;
+}
+
+a {
+    color: #ffffff;
+}
+
+.form p {
+    font-size: 25px;
+    margin-bottom: 15px;
+    padding: 0 150px 0 150px;
+    color: #6FB7C3;   
+}
+
+.form p label {
+    display: none;
+}
+
+.form #id_image {
+    margin-left: 25px;
+    margin-top: 20px;
+    margin-left: 0;   
+}
+
+/* детальный стиль create */
+.form_create p {
+    font-size: 25px;
+    margin-bottom: 15px;
+    padding: 0 150px 0 150px;
+}
+
+.form_create p label {
+    display: none;
+}
+
+.form_create textarea {
+    width: 700px;
+    height: 300px;
+    border: none;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+    font-size: 25px;
+    padding: 15px 0px 15px 10px;
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(185, 173, 173);
+    font-style: oblique;
+}
+
+.form_create input {
+    color: rgb(185, 173, 173);
+    font-style: oblique;
+}
+
+.form_create #id_image {
+    margin-left: 200px;
+    margin-top: 20px;
+}
+
+.form_create .btn_update {
+    width: 250px;
+    height: 30px;
+    position: relative;
+    background-color: #fddf59;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+/* стили books_delete.html */
+
+.btn_delete {
+    width: 250px;
+    height: 50px;
+    position: relative;
+    background-color: #fd8759;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+.form_delete p {
+    font-size: 35px;
+    color: rgb(97, 95, 94);
+    font-weight: lighter;
+}
+
+.wrapp_delete {
+    background: #ead0d0;
+    text-align: center;
+    padding: 100px 0 100px 0;
+    font-size: 30px;
+    color: rgb(255, 248, 248);
+    /* font-family: 'Courier New', Courier, monospace; */
+    /* font-style: oblique; */
+}
+
+.ex_wrapp_delete {
+    background: #6FB7C3; 
+    padding: 90px 0 100px 0;
+}
+
+.wrapp_delete .line {
+    width: 195px;
+    height: 4px;
+    background: #f2c602;
+    position: relative;
+    left: 45%;
+    margin-bottom: 50px;
+}
+
+.wrapp_delete h2 {
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    color: #fff;
+}
+
+/* стили book_detail.html */
+.ex_wrapp_detail h2 {
+    font-size: 60px;
+    margin-top: 50px;
+    color: rgb(255, 248, 248);
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    font-weight: 50;
+}
+
+.ex_wrapp_detail {
+    background: #6FB7C3; 
+    padding: 100px 0 100px 0;
+}
+
+.ex_wrapp_detail .line {
+    width: 190px;
+    height: 4px;
+    background: #f2c602;
+    position: relative;
+    left: 55%;
+    margin-bottom: 50px;
+}
+
+.wrapp_detail {
+    background: #ead0d0;
+    text-align: justify;
+    padding: 100px 100px 0 100px;
+}
+ .wrapp_detail p {
+    font-size: 30px;
+    color: #222;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 50px;
+ }
+
+ .wrapp_detail .author {
+     text-align: right;
+     margin-bottom: 10px;
+     color: #6FB7C3;
+
+ }
+ .wrapp_detail .id_book {
+     text-align: right;
+     font-size: 20px;
+     position: relative;
+ }
+
+.btn_update_detail {
+    width: 250px;
+    height: 40px;
+    position: relative;
+    background-color: #faf6f6;
+    color: rgb(219, 131, 131);
+    font-size: 20px;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 50px;
+    margin-right: 10px;
+    left: 86%;
+}
+
+.btn_delete_detail {
+    width: 250px;
+    height: 40px;
+    position: relative;
+    background-color: #ff7070;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+    left: 55%;
+}
+
+#image_ {
+    margin-bottom: 50px;
+    padding: 0 730px 0 730px;
+}
+
+/* Авторизация, регистрация кнопки */
+
+.btn_add {
+    width: 180px;
+    height: 40px;
+    position: relative;
+    background-color: #fff;
+    color: #f3cd24;
+    font-size: 20px;
+    cursor: pointer;
+    padding-left: 0px;
+    border: 1.5px solid #f3cd24;
+    /* border-radius: 3px; */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.btn_logout {
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff;
+    color: #ff8787;
+    font-size: 20px;
+    padding-left: 1.5px;
+    border: 1.5px solid rgb(238, 183, 183);
+    /* border-radius: 3px; */
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.btn_logout_ {
+    width: 250px;
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff;
+    color: #ff8787;
+    font-size: 20px;
+    padding-left: 1.5px;
+    border: 1.5px solid rgb(238, 183, 183);
+    /* border-radius: 3px; */
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0 10px;
+    margin-bottom: 15px;
+}
+
+.not_yet {
+    margin-top: 56px;
+    margin-left: 23%;
+    position: relative;
+}
+
+/* Авторизация, регистрация инофрмация */
+
+.hello {
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 15px;
+    position: relative;
+    text-align-last: left;
+}
+
+
+.wrapp_changed {
+    background: #ead0d0;
+    text-align: center;
+    padding: 50px 0 50px 0;
+    font-size: 30px;
+    color: rgb(255, 248, 248);
+    font-family: 'Times New Roman', Times, serif;
+    /* font-style: oblique; */
+}
+
+.wrapp_changed h3 {
+    color: #ff8787;
+    font-size: 30px;
+    -webkit-text-stroke: 1px #a1a1a1;
+    font-style: oblique;
+}
+
+/* страница регистрации кнопкa */
+.btn_add_ {
+    width: 250px;
+    height: 40px;
+    position: relative;
+    background-color: #fff;
+    color: #f3cd24;
+    font-size: 20px;
+    cursor: pointer;
+    padding-left: 0px;
+    border: 1.5px solid #f3cd24;
+    /* border-radius: 3px; */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 100px;
+    left: 43%;
+    margin-top: 20px;
+}
+
+/* страница регистрации формы */
+.wrapp_detail_ h2 {
+    color: rgb(83, 81, 81);
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+    font-family: 'Courier New', Courier, monospace ;
+}
+
+.wrapp_detail_ .line {
+    width: 250px;
+    height: 3px;
+    background: #facc34;
+    /* position: relative; */
+    left: 18%;
+    margin-bottom: 50px;
+}
+
+.wrapp_detail_ {
+    background: #ead0d0;
+    text-align: justify;
+    padding: 100px 100px 0 100px;
+}
+ .wrapp_detail_ p {
+    font-size: 25px;
+    color: #222;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 30px;
+ }
+
+ /* страница авторизации формы */
+ .wrapp_detail__ h2 {
+    color: rgb(83, 81, 81);
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+    font-family: 'Courier New', Courier, monospace ;
+}
+
+.wrapp_detail__ .line {
+    width: 250px;
+    height: 3px;
+    background: #facc34;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.wrapp_detail__ {
+    background: #ead0d0;
+    text-align: center;
+    padding: 100px 100px 0 100px;
+
+}
+ .wrapp_detail__ p {
+    font-size: 25px;
+    color: #222;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 30px;
+ }
+
+ .btn_add__ {
+    width: 250px;
+    height: 40px;
+    position: relative;
+    background-color: #fff;
+    color: #f3cd24;
+    font-size: 20px;
+    cursor: pointer;
+    padding-left: 0px;
+    border: 1.5px solid #f3cd24;
+    /* border-radius: 3px; */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+
+.paginator {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.paginator a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-repeat: 5px;
+}
+
+.paginator a.active {
+    border-radius: 5px;
+    color: aqua;
+}
+
+.wrapp_paginator_pink {
+    background: #ead0d0;
+    text-align: center;
+    padding: 50px 0 50px 0;
+    font-size: 25px;
+    color: #817e76;
+    /* font-family: 'Times New Roman', Times, serif; */
+}
+/* Footer */
+.social{
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 45px 0 30px 0;
+}
+
+footer p{
+    color: #f2c602;
+    text-transform: uppercase;
+    font-family: 'Roboro', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.ex_wrapp_footer {
+    background: #ead0d0; 
+    padding: 5px 0 5px 0;
+}

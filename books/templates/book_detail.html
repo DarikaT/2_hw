@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} ... {% endblock %}
+{% block content %}
+<main class="list">
+   <div class="ex_wrapp_detail">
+      <h2>{{object.title}}</h2>
+      <div class="line" id = 'line_new'></div>
+   </div>
+   {% if user.is_authenticated %}
+   <div class="wrapp_detail">
+      {% if object.image %}
+      <img id = image_ style="height: 400px" src="{{object.image.url}}">
+      {% endif %}
+      <p>{{object.book}}</p>
+      <div class="buttons">
+         <p class="author">Автор поста: <a href="#">{{object.author}}</a></p>
+         <p class="id_book">ID: {{object.id}}</p>
+         <a href="{% url 'bookupdate_url' object.pk %}">
+         <button class='btn_update_detail'>Изменить</button>
+         </a>
+         <a href="{% url 'bookdelete_url' object.pk %}">
+         <button class='btn_delete_detail'>Удалить</button>
+         </a>
+      </div>
+   </div>
+   <div class="ex_wrapp_detail">
+      <p>Комментарий к «{{object.title}}»</p>
+      <!-- <div class="line" id = 'line_new'></div> -->
+      <form action="" method="POST">
+         {% for comment in object_list %}
+         <div class="book_title">
+            <ul>
+               <h3>{{ comment.comment }}</h3>
+               <p>{{comment.pub_date}}</p>
+            </ul>
+         </div>
+         <input class = 'btn_add_' type="submit" value = 'Отправить'>
+         {% endfor %}
+      </form>
+   </div>
+   {% else %}
+   <div class="wrapp_detail">
+      {% if object.image %}
+      <img id = image_ style="height: 400px" src="{{object.image.url}}">
+      {% endif %}
+      <p>{{object.book}}</p>
+      <div class="buttons">
+         <p class="author">Автор поста: <a href="#">{{object.author}}</a></p>
+         <p class="id_book">ID: {{object.id}}</p>
+      </div>
+   </div>
+   <div class="ex_wrapp_detail"></div>
+   {% endif %}
+   {% for comment in object.book_comments.all%}
+   {{comment.comment}}
+   {% endfor %}
+</main>
+{% endblock %}

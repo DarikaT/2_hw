@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{% block title %} BOOKS {% endblock %}</title>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <header>
+        <div class="header__logo">
+           <a href="{% url 'bookslist_url' %}"><p>books</p> <p class = 'hello'> - Hello {{ user.username }}</p></a>
+        </div>
+        
+        <nav>
+           <div class="topnav" id="myTopnav">
+            <a href="{% url 'booksnew_url' %}" class = a_hover>Новинки</a>
+            <a href="{% url 'whattoread_url' %}" class = a_hover>Что почитать?</a>
+            <a href="{% url 'bookcreate_url' %}"><button class = 'btn_add'>Добавить книгу</button></a>
+            <a href="{% url 'logout' %}"><button class = 'btn_logout'>Выйти</button></a>
+           </div>
+        </nav> 
+      </header>
+      {% else %}
+      <header>
+         <div class="header__logo">
+            <a href="{% url 'bookslist_url' %}"><p>books</p></a>
+         </div>
+         <nav class = 'not_yet'>
+            <div class="topnav" id="myTopnav">
+              <a href="{% url 'booksnew_url' %}">Новинки</a>
+              <a href="{% url 'whattoread_url' %}">Что почитать?</a>
+              <a href="{% url 'login' %}"><button class = 'btn_add'>Войти</button> </a>
+              <a href="{% url 'signup_url' %}"><button class = 'btn_logout_'>Зарегистрироваться</button> </a>
+            </div>
+         </nav> 
+       </header>
+       {% endif %}
+
+
+
+{% block content %}
+
+    
+{% endblock %}
+
+<footer>
+ <div class="wrapper">
+    <div class="social">
+       <p>second homework</p>
+    </div>
+ </div>
+</footer>
+
+<div class="ex_wrapp_footer"></div>
+</body>
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</html>

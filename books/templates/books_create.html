@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} BOOKS - Поделись любимой книгой {% endblock %}
+{% block content %}
+<main class="list">
+   <div class="ex_wrapp_create"></div>
+   <div class="wrapp_create">
+      <h2>Добавить книгу:</h2>
+      <div class="line" id = 'line_new'></div>
+      <form class = 'form_create' action="" method = 'POST' enctype="multipart/form-data">
+        
+         {% csrf_token %}
+
+         {{form.as_p}}
+    
+         <input type="submit" class='btn_update' value='Создать'/>
+      </form>
+   </div>
+   <div class="ex_wrapp_create"></div>
+</main>
+{% endblock %}

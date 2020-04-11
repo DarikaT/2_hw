@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Log In :) {% endblock %}
+
+{% block content %}
+
+<main class="list">
+
+    <div class="ex_wrapp_detail"></div>
+     
+    <div class="wrapp_detail_">
+        <h2>Регистрация</h2>
+        <div class="line" id = 'line_new'></div>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type = "submit" class = 'btn_add_'>
+                Зарегистрироваться
+            </button>
+        </form>
+    </div>
+    <div class="ex_wrapp_detail"></div>
+</main>
+
+{% endblock %}
