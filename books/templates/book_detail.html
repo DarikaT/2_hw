@@ -1,59 +1,68 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block title %} ... {% endblock %}
 {% block content %}
 <main class="list">
-   <div class="ex_wrapp_detail">
-      <h2>{{object.title}}</h2>
-      <div class="line" id = 'line_new'></div>
+   <div class="wrapp-quote">
+      <p> "...Чтением человек переживает века." <br><br>
+          - Александр Герцен</p>
    </div>
-   {% if user.is_authenticated %}
-   <div class="wrapp_detail">
-      {% if object.image %}
-      <img id = image_ style="height: 400px" src="{{object.image.url}}">
-      {% endif %}
-      <p>{{object.book}}</p>
-      <div class="buttons">
-         <p class="author">Автор поста: <a href="#">{{object.author}}</a></p>
-         <p class="id_book">ID: {{object.id}}</p>
-         <a href="{% url 'bookupdate_url' object.pk %}">
-         <button class='btn_update_detail'>Изменить</button>
-         </a>
-         <a href="{% url 'bookdelete_url' object.pk %}">
-         <button class='btn_delete_detail'>Удалить</button>
-         </a>
-      </div>
-   </div>
-   <div class="ex_wrapp_detail">
-      <p>Комментарий к «{{object.title}}»</p>
-      <!-- <div class="line" id = 'line_new'></div> -->
-      <form action="" method="POST">
-         {% for comment in object_list %}
-         <div class="book_title">
-            <ul>
-               <h3>{{ comment.comment }}</h3>
-               <p>{{comment.pub_date}}</p>
-            </ul>
+   <div class="ex_wrapp">
+      <div class="book_title">
+         <h3>{{object.title}}</h3>
+         {% if object.image %}
+         <div class="col-md-10 blogShort">
+         <img id = image_ style="height: 400px" src="{{object.image.url}}">
+         <h5 class="main_p"><a href="{% url 'bookslist_url' %}">	&#8592;Главная</h5>
+         <h5>Автор поста: <a class='aa' href="{% url 'profile_url' user.pk %}">{{object.author}}</a><p class="id_book">ID: {{object.id}}</p></h5>
          </div>
-         <input class = 'btn_add_' type="submit" value = 'Отправить'>
-         {% endfor %}
-      </form>
-   </div>
-   {% else %}
-   <div class="wrapp_detail">
-      {% if object.image %}
-      <img id = image_ style="height: 400px" src="{{object.image.url}}">
-      {% endif %}
+         {% endif %}
+      </div>
+   
+      <div class="book_text">
       <p>{{object.book}}</p>
-      <div class="buttons">
-         <p class="author">Автор поста: <a href="#">{{object.author}}</a></p>
-         <p class="id_book">ID: {{object.id}}</p>
+      {% if user.is_authenticated %}
+      {% if request.user == object.author %}
+     
+      <a href="{% url 'bookupdate_url' object.pk %}">
+         <button class='btn_add'>Изменить</button>
+      </a>
+      <a href="{% url 'bookdelete_url' object.pk %}">
+         <button class='btn_add'>Удалить</button>
+      </a>
+ 
+      {% endif %}
+      {% endif %}
+    
+
+      {% if user.is_authenticated %}
+      <div class="wrapp_comments">
+      <form action="" method="POST" class='comments'>
+         {% csrf_token %}
+         {{form|crispy}}
+         <button class="btn btn_add">Добавить </button>
+     </form>
+     <div class="line"></div>
+      
+      
+      <h3 class = "card">Комментарии к аннотации книги «{{object.title}}»:</h3>
+   
+      <h3 class = "card">Количество комментариев: {{ book_comments.count }} </h3>
+   
+      {% for comment in object.book_comments.all %}
+      <div class="card" style="width: 100%; margin-top: 50px;">
+         <h3 class="card-title">{{comment.comment_title}}</h3>
+         <p class="card-text">{{comment.comment}}</p>
+         <p class="card-link"><a href="#" >{{comment.author}}</a></p>
+         <p class="card-link2">{{comment.pub_date}}</p>
+      </div>
+      {% endfor %}
+      
+      </div>
+     {% endif %}
       </div>
    </div>
-   <div class="ex_wrapp_detail"></div>
-   {% endif %}
-   {% for comment in object.book_comments.all%}
-   {{comment.comment}}
-   {% endfor %}
+  
 </main>
 {% endblock %}

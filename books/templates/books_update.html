@@ -1,22 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block title %} Изменить «{{object.title}}» {% endblock %} 
 
 {% block content %}
 <main class="list">
-    <div class="ex_wrapp_create"></div>
-    <div class="wrapp_create">
+ 
+    <div class="wrapp_">
         <h2>Изменить: «{{object.title}}»</h2>
-        <div class="line" id = 'line_new'></div>
+       
 
-    <form class = 'form' action="" method = 'POST'>
+    <form class = 'form' action="" method = 'POST' enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_p}}
+        {{form|crispy}}
 
-        <input class = 'btn_update' type="submit" value = 'Изменить'>
+        <input class = 'btn_logout_' type="submit" value = 'Изменить'>
     </form>
     </div>
-    <div class="ex_wrapp_create"></div>
+
 </main>
 {% endblock %}

@@ -6,9 +6,16 @@
 {% block content %}
 
 <main class="list">
-    <div class="wrapp">
-        <h2>Новинки!</h2>
-        <div class="line" id = 'line_new'></div>
+    <div class="search">
+        <form class="form-inline" method="GET">
+           <input class="form-control mr-sm-2" type="search" name = 'search_title' placeholder="Найти" aria-label="Search">
+           <button class="btn btn-search" type="submit">Найти</button>
+         </form>
+       </div>
+    <div class="wrapp-quote">
+        <p>"Просто читай, и пусть слова ласкают твой слух, словно музыка." <br><br>
+            - Роальд Даль «Матильда»</p>
+      
     </div>
     
     <div class="ex_wrapp">
@@ -20,28 +27,32 @@
                   
                     {% if book.image %}
                     <div class="col-md-10 blogShort">
-                        <img style="height: 200px" src="{{book.image.url}}"  class="pull-left img-responsive thumb margin20 img-thumbnail">
+                        <a href="{% url 'bookdetail_url' book.pk %}">
+                            <img style="height: 280px" src="{{book.image.url}}" class="pull-left img-responsive thumb margin20 img-thumbnail">
+                        </a>
+                        <h5>Автор поста: <a href="#">{{ book.author }}</a></h5>
                     </div>
                     {% endif %}
-                    <h5>Автор поста: <a href="#">{{ book.author }}</a></h5>
+                    
                 </ul>
             </div>
 
-            <div class="book_text_new">
+            <div class="book_text">
                 <p>{{ book.book }}</p>
+                
             </div>
 
             <div class="published">
-                <p>Дата публикации: {{ book.publish }}</p>
+                <p>Опубликовано: {{ book.publish }}</p>
             </div>
             {% endfor %}
+            
+        </div>
+        <div class="paginator">
+        {% include "pagination.html" with page=page_obj %}
         </div>
     </div>
-    <div class="wrapp_paginator_pink">
-        <div class="paginator">
-            {% include "pagination.html" with page=page_obj %}
-        </div>
-        </div>
+    
 </main>
 
 

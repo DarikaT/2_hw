@@ -6,9 +6,10 @@
 {% block content %}
 
 <main class="list">
-    <div class="wrapp">
-        <p><b>«Что почитать?»</b><br>На этой странице предоставлены книги абсолютно разных авторов и жанров,
-        чтобы Вы с легкостью могли окунуться в новые неизведанные миры.</p>
+    <div class="wrapp-quote">
+        <p>"Если кто-нибудь рядом с вами погрузился в чтение книжки,<br>то считайте, что его нет подле вас — он где-то в другом месте;<br>
+            он никак не связан с вами — он общается с другими людьми." <br><br>
+            - Карел Чапек «Как читают книги»</p>
     </div>
 
     <div class="ex_wrapp">
@@ -19,24 +20,27 @@
                     <h3><a class = links_list href="{% url 'bookdetail_url' book.pk %}">{{ book.title }}</a></h3>
                     {% if book.image %}
                     <div class="col-md-10 blogShort">
-                        <img style="height: 200px" src="{{book.image.url}}"  class="pull-left img-responsive thumb margin20 img-thumbnail">
+                        <a href="{% url 'bookdetail_url' book.pk %}">
+                            <img style="height: 280px" src="{{book.image.url}}" class="pull-left img-responsive thumb margin20 img-thumbnail">
+                        </a>
+                        <h5>Автор поста: <a href="#">{{ book.author }}</a></h5>
                     </div>
                     {% endif %}
-                    <h5>Автор поста: <a href="#">{{ book.author }}</a></h5>
+                    
                 </ul>
             </div>
 
             <div class="book_text">
                 <p>{{ book.book }}</p>
+                
             </div>
             {% endfor %}
         </div>
+        <div class="paginator">
+            {% include "pagination.html" with page=page_obj %}
+        </div>
     </div>
-    <div class="wrapp_paginator_pink">
-    <div class="paginator">
-        {% include "pagination.html" with page=page_obj %}
-    </div>
-    </div>
+  
 
 </main>
 

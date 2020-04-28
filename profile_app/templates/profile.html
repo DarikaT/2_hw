@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Профиль {{ object.first_name}} {% endblock %}
+
+{% block content %}
+
+<div class="list">
+    <div class="ex_wrapp">
+        <h3>{{ user.username }}</h3>
+        <h3>{{ user.first_name }}</h3>
+        <h3>{{ user.last_name }}</h3>
+        <h3>{{ object.date_of_birth }}</h3>
+        {% if object.photo %}
+        <img style='height: 250px;' src="{{object.photo.url}}" alt=""><h3>{{ object.photo }}</h3>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

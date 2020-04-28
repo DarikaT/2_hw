@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block title %} BOOKS - Поделись любимой книгой {% endblock %}
 {% block content %}
 <main class="list">
-   <div class="ex_wrapp_create"></div>
-   <div class="wrapp_create">
+  
+   <div class="wrapp_">
       <h2>Добавить книгу:</h2>
-      <div class="line" id = 'line_new'></div>
       <form class = 'form_create' action="" method = 'POST' enctype="multipart/form-data">
         
          {% csrf_token %}
 
-         {{form.as_p}}
+         {{form|crispy}}
     
-         <input type="submit" class='btn_update' value='Создать'/>
+         <input type="submit" class='btn_logout_' value='Создать'/>
       </form>
    </div>
-   <div class="ex_wrapp_create"></div>
+   
 </main>
 {% endblock %}

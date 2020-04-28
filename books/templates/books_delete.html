@@ -5,17 +5,16 @@
 
 {% block content %}
 <main class="list">
-    <div class="ex_wrapp_delete"></div>
-    <div class="wrapp_delete">
+
+    <div class="wrapp_">
         <h2>Удалить: «{{object.title}}»</h2>
-        <div class="line" id = 'line_new'></div>
 
     <form class = 'form_delete' action="" method = 'POST'>
         {% csrf_token %}
         <p>Вы действительно хотите удалить эту книгу? «{{object.title}}»</p>
-        <input class = 'btn_delete' type="submit" value = 'Удалить'>
+        <input class = 'btn_logout_' type="submit" value = 'Удалить'>
     </form>
     </div>
-    <div class="ex_wrapp_delete"></div>
+   
 </main>
 {% endblock %}

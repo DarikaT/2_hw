@@ -5,8 +5,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('', include('books.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('accounts.urls')),
+    path('profile_app/', include('django.contrib.auth.urls')),
+    path('profile_app/', include('profile_app.urls')),
     path('admin/', admin.site.urls),
 ]
 
