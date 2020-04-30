@@ -1,13 +1,5 @@
 from django.urls import path
-from .views import (
-    BooksListView, 
-    BooksDetailView, 
-    BooksNew, 
-    WhatToRead, 
-    BooksCreateView, 
-    BooksUpdateView, 
-    BookDeleteView,
-)
+from .views import *
 from .models import Books
 
 urlpatterns = [

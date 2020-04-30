@@ -15,13 +15,14 @@
          <div class="col-md-10 blogShort">
          <img id = image_ style="height: 400px" src="{{object.image.url}}">
          <h5 class="main_p"><a href="{% url 'bookslist_url' %}">	&#8592;Главная</h5>
-         <h5>Автор поста: <a class='aa' href="{% url 'profile_url' user.pk %}">{{object.author}}</a><p class="id_book">ID: {{object.id}}</p></h5>
+         <h5>Автор поста: <a class='aa' href="">{{object.author}}</a><p class="id_book">ID: {{object.id}}</p></h5>
          </div>
          {% endif %}
       </div>
    
       <div class="book_text">
       <p>{{object.book}}</p>
+   
       {% if user.is_authenticated %}
       {% if request.user == object.author %}
      

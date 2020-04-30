@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>{% block title %} BOOKS {% endblock %}</title>
@@ -29,6 +32,7 @@
             <a href="{% url 'booksnew_url' %}" class = a_hover>Новинки</a>
             <a href="{% url 'whattoread_url' %}" class = a_hover>Что почитать?</a>
             {% if user.is_authenticated %}
+            <a href="{% url 'profile_url' request.user.pk %}" class = a_hover>Личный кабинет</a>
             <a href="{% url 'bookcreate_url' %}"><button class = 'btn_add'>Добавить книгу</button></a>
             <a href="{% url 'logout' %}"><button class = 'btn_logout'>Выйти</button></a>
             {% else %}

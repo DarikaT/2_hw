@@ -1,26 +1,35 @@
 from django.db import models
+from django.utils import timezone
+from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-from django.utils import timezone
 from django.core import validators
 from django.core.exceptions import ValidationError
+from django.conf import settings
 
 
 class Books(models.Model):
+    STATUS_CHOICES = (
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+    )
     title = models.CharField('Название книги', max_length=200)
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='book_posts')
     image = models.ImageField('Изображение:', upload_to='media', blank=True)
     book = models.TextField('Аннотация', validators=[validators.MinLengthValidator(400,message='Минимальное количество символов: 400')])
     publish = models.DateTimeField('Дата публикации', default=timezone.now)
+    created = models.DateTimeField('Дата создания', auto_now_add=True)
+    updated = models.DateTimeField('Дата обновления', auto_now=True)
+    slug = models.SlugField(max_length=250, unique_for_date='publish')
+    status = models.CharField('Статус', max_length=10, choices=STATUS_CHOICES, default='draft')
+    users_like = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='books_liked', blank=True)
 
 
     def __str__(self):
         return self.title
-    
-    def get_absolute_url(self):
-        return reverse('bookdetail_url', args=[str(self.id)])
 
     class Meta:
+        ordering = ('-publish',)
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
 

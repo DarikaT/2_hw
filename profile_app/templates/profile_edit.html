@@ -3,15 +3,38 @@
 {% load crispy_forms_tags %}
 {% block title %} Log In :) {% endblock %}
 
-{% block content %}
-<h1>Edit your account</h1>
-    <p>You can edit your account using the following form:</p>
+{% block content %} 
+<div class="page-edit">
+<div class="profile-page">
+<div class="pp_item4">
+    
+</div>
+<div class="pp_item4">
+    <p><img class='profile' style="height: 210px;" src="{% static 'images/3.jpg' %}" alt=""></p><br>
+    <p class='pp_item4-7__el'><img class='profile' style="height: 210px;" src="{% static 'images/4.jpg' %}" alt=""></p>
+</div>
+<div class="pp_item3">
+    <p><img class='profile' style="height: 300px;" src="{% static 'images/1.jpg' %}" alt=""></p><br>
+    <p class='pp_item4-7__el'><img class='profile' style="height: 300px;" src="{% static 'images/7.jpg' %}" alt=""></p>
+</div>
+
+<div class="pp_item-edit">
+<h1>Личная информация:</h1><br>
+    
     <form action="." method="post" enctype="multipart/form-data">
         {% csrf_token %}
+       <div class="profile_form_text">
         {{ user_form|crispy }}
         {{ profile_form|crispy }}
         
-        <p><input type="submit" value="Save changes"></p>
+        </div>
+        <p><button class="profile__btn-save" type="submit">Сохранить</button></p>
     </form>
+</div>
+
+
+</div>
+
+</div>
 
 {% endblock %}

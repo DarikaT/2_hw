@@ -49,8 +49,12 @@
                         <a href="{% url 'bookdetail_url' book.pk %}">
                             <img style="height: 280px" src="{{book.image.url}}" class="pull-left img-responsive thumb margin20 img-thumbnail">
                         </a>
-
-                        <h5>Автор поста: <a href="#">{{ book.author }}</a></h5>
+                        
+                        {% if user.pk %}
+                        <h5>Автор поста: <a href="{% url 'profile_url' request.user.pk %}">{{ book.author }}</a></h5>
+                        {% else %}
+                        <h5>Автор поста: <a href="{#}">{{ book.author }}</a></h5>
+                        {% endif %}
                     </div>
 
                     {% endif %}

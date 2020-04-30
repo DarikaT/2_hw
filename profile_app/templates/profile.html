@@ -6,14 +6,89 @@
 {% block content %}
 
 <div class="list">
-    <div class="ex_wrapp">
-        <h3>{{ user.username }}</h3>
-        <h3>{{ user.first_name }}</h3>
-        <h3>{{ user.last_name }}</h3>
-        <h3>{{ object.date_of_birth }}</h3>
-        {% if object.photo %}
-        <img style='height: 250px;' src="{{object.photo.url}}" alt=""><h3>{{ object.photo }}</h3>
-        {% endif %}
+    <div class="page">
+        <div class="profile-page">
+        
+            <div class="pp_item">
+                {% if object.photo %}
+                <img class='profile' style='height: 150px;' src="{{object.photo.url}}" alt=""><h3 hidden>{{ object.photo }}</h3>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <div class="profile-page__btn-edit">
+                        <a href="{% url 'profile_edit_url' %}"><button class="profile__btn-edit">
+                            Редактировать
+                        </button></a>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="pp_item1">
+                
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                
+                
+
+                <div class="dropdown">
+                    <button class="profile-dropdown">Показать подробную информацию
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                    {% if object.date_of_birth %}
+                      <a href="#">День рождения: {{ object.date_of_birth }} </a>
+                    {% endif %}
+                    {% if user.email %}
+                      <a href="#">Email: {{ user.email }}</a>
+                    {% endif %}
+                    </div>
+                  </div>
+                </div>
+               
+            </div>
+            <div class='profile-page'>
+                <div class="pp_item2">
+                    <h2>Подписчики</h2><br>
+                   
+                    <a href=""><img class='profile1' style="height: 70px;" width="70px" src="{% static 'images/2.jpg' %}" alt=""></a>
+                    <a href=""><img class='profile1' style="height: 70px;" width="70px" src="{% static 'images/1.jpg' %}" alt=""></a>
+                    <a href=""><img class='profile1' style="height: 70px;" width="70px" src="{% static 'images/3.jpg' %}" alt=""></a>
+                    <a href=""><img class='profile1' style="height: 70px;" width="70px" src="{% static 'images/4.jpg' %}" alt=""></a>
+                    <a href=""><img class='profile1' style="height: 70px;" width="70px" src="{% static 'images/6.jpg' %}" alt=""></a>
+                    <a href=""><img class='profile1' style="height: 70px;" width="70px" src="{% static 'images/7.jpg' %}" alt=""></a>
+                  
+                </div>
+
+                <div class="pp_item5">
+                    <h1 style="font-size: 40px;">Мои книги:</h1><br><br>
+                    {% for book in books %}
+                    <div>
+                        <ul>
+                            <h3 style="text-align: center;" ><a class = links_list href="{% url 'bookdetail_url' book.pk %}">{{ book.title }}</a></h3><br>
+
+                            {% if book.image %}
+
+                            <div class="col-md-10 blogShort">
+                                <a href="{% url 'bookdetail_url' book.pk %}">
+                                    <img style="height: 300px" src="{{book.image.url}}" class="profile">
+                                </a>
+
+                                <h5>Автор поста: <a href="#">{{ book.author }}</a></h5>
+                            </div>
+
+                            {% endif %}
+                            
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p style="font-size: 23px;">{{ book.book|truncatewords:150 }}<a href="{% url 'bookdetail_url' book.pk %}">&#8594;</a></p><br><br>
+                        
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+
+
+        </div>
     </div>
 </div>
 

@@ -15,36 +15,40 @@
     <div class="wrapp-quote">
         <p>"Просто читай, и пусть слова ласкают твой слух, словно музыка." <br><br>
             - Роальд Даль «Матильда»</p>
-      
     </div>
-    
-    <div class="ex_wrapp">
-        <div class="examples">
+</main>  
+    <div class="page-new">
+        <div class="profile-page">
             {% for book in object_list %}
-            <div class="book_title">
+            <div class="books-new__book_title">
                 <ul>
-                    <h3><a class = links_list href="{% url 'bookdetail_url' book.pk %}">{{ book.title }}</a></h3>
+                    <h3><a class = links_list style="text-decoration: overline double;" href="{% url 'bookdetail_url' book.pk %}">{{ book.title }}</a></h3>
                   
                     {% if book.image %}
                     <div class="col-md-10 blogShort">
                         <a href="{% url 'bookdetail_url' book.pk %}">
-                            <img style="height: 280px" src="{{book.image.url}}" class="pull-left img-responsive thumb margin20 img-thumbnail">
+                            <img class='profile' style="height: 200px" src="{{book.image.url}}" class="pull-left img-responsive thumb margin20 img-thumbnail">
                         </a>
-                        <h5>Автор поста: <a href="#">{{ book.author }}</a></h5>
+                        <br><h2 style="text-align: justify;" >Автор поста: <a href="#">{{ book.author }}</a></h2><br>
                     </div>
                     {% endif %}
                     
                 </ul>
+                <div class="books-new__book_text">
+                    <p>{{ book.book|truncatewords:200 }}
+                        <a href="{% url 'bookdetail_url' book.pk %}">&#8594;</a>
+                    </p>
+                    
+                    
+                <div class="published">
+                    <p>Опубликовано: {{ book.publish }}</p>
+                </div>
+                </div>
+    
+               
             </div>
 
-            <div class="book_text">
-                <p>{{ book.book }}</p>
-                
-            </div>
-
-            <div class="published">
-                <p>Опубликовано: {{ book.publish }}</p>
-            </div>
+            
             {% endfor %}
             
         </div>
@@ -53,7 +57,7 @@
         </div>
     </div>
     
-</main>
+
 
 
 {% endblock %}
