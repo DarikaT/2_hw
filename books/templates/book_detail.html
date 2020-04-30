@@ -48,9 +48,9 @@
       
       
       <h3 class = "card">Комментарии к аннотации книги «{{object.title}}»:</h3>
-   
+    
       <h3 class = "card">Количество комментариев: {{ book_comments.count }} </h3>
-   
+ 
       {% for comment in object.book_comments.all %}
       <div class="card" style="width: 100%; margin-top: 50px;">
          <h3 class="card-title">{{comment.comment_title}}</h3>

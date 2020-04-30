@@ -10,9 +10,10 @@
         <div class="profile-page">
         
             <div class="pp_item">
-                {% if object.photo %}
-                <img class='profile' style='height: 150px;' src="{{object.photo.url}}" alt=""><h3 hidden>{{ object.photo }}</h3>
+                {% if profile.photo %}
+                <img class='profile' style='height: 150px;' src="{{profile.photo.url}}" alt=""><h3 hidden>{{ object.photo }}</h3>
                 {% endif %}
+               
                 {% if user.is_authenticated %}
                     <div class="profile-page__btn-edit">
                         <a href="{% url 'profile_edit_url' %}"><button class="profile__btn-edit">

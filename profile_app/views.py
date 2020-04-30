@@ -12,16 +12,21 @@ class UserSignUpView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
-class ProfileView(DetailView):
-    model = Profile
-    template_name = 'profile.html'
+# class ProfileView(DetailView):
+#     model = Profile
+#     template_name = 'profile.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(ProfileView, self).get_context_data(**kwargs)
-        context['books'] = Books.objects.filter()
-        return context     
-  
-    
+#     def get_context_data(self, **kwargs):
+#         context = super(ProfileView, self).get_context_data(**kwargs)
+#         context['books'] = Books.objects.filter(author_id__in = Profile.user)
+#         return context     
+
+def profile_detail(request, pk):
+    profile = Profile.objects.get(pk=pk)
+    books = Books.objects.filter(author = request.user)
+    return render(request, 'profile.html', {'profile': profile, 'books': books})
+
+
 @login_required
 def edit(request, *args, **kwargs):
     if request.method == 'POST':
